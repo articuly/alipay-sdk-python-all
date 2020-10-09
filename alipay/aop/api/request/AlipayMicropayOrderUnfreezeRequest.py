@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -123,15 +123,15 @@ class AlipayMicropayOrderUnfreezeRequest(object):
         params[P_METHOD] = 'alipay.micropay.order.unfreeze'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.alipay_order_no:
             if hasattr(self.alipay_order_no, 'to_alipay_dict'):
-                params['alipay_order_no'] = json.dumps(obj=self.alipay_order_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['alipay_order_no'] = json.dumps(obj=self.alipay_order_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['alipay_order_no'] = self.alipay_order_no
         if self.memo:
             if hasattr(self.memo, 'to_alipay_dict'):
-                params['memo'] = json.dumps(obj=self.memo.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['memo'] = json.dumps(obj=self.memo.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['memo'] = self.memo
         if self.terminal_type:

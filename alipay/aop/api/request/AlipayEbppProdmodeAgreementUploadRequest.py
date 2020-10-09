@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -133,15 +133,15 @@ class AlipayEbppProdmodeAgreementUploadRequest(object):
         params[P_METHOD] = 'alipay.ebpp.prodmode.agreement.upload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.operator_name:
             if hasattr(self.operator_name, 'to_alipay_dict'):
-                params['operator_name'] = json.dumps(obj=self.operator_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator_name'] = json.dumps(obj=self.operator_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator_name'] = self.operator_name
         if self.task_id:
             if hasattr(self.task_id, 'to_alipay_dict'):
-                params['task_id'] = json.dumps(obj=self.task_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['task_id'] = json.dumps(obj=self.task_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['task_id'] = self.task_id
         if self.terminal_type:

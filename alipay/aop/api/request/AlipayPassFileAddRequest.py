@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -131,20 +131,20 @@ class AlipayPassFileAddRequest(object):
         params[P_METHOD] = 'alipay.pass.file.add'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.file_content:
             if hasattr(self.file_content, 'to_alipay_dict'):
-                params['file_content'] = json.dumps(obj=self.file_content.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['file_content'] = json.dumps(obj=self.file_content.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['file_content'] = self.file_content
         if self.recognition_info:
             if hasattr(self.recognition_info, 'to_alipay_dict'):
-                params['recognition_info'] = json.dumps(obj=self.recognition_info.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['recognition_info'] = json.dumps(obj=self.recognition_info.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['recognition_info'] = self.recognition_info
         if self.recognition_type:
             if hasattr(self.recognition_type, 'to_alipay_dict'):
-                params['recognition_type'] = json.dumps(obj=self.recognition_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['recognition_type'] = json.dumps(obj=self.recognition_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['recognition_type'] = self.recognition_type
         if self.terminal_type:

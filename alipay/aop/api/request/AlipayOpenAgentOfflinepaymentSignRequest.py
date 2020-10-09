@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -185,35 +185,35 @@ class AlipayOpenAgentOfflinepaymentSignRequest(object):
         params[P_METHOD] = 'alipay.open.agent.offlinepayment.sign'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.batch_no:
             if hasattr(self.batch_no, 'to_alipay_dict'):
-                params['batch_no'] = json.dumps(obj=self.batch_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['batch_no'] = json.dumps(obj=self.batch_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['batch_no'] = self.batch_no
         if self.business_license_no:
             if hasattr(self.business_license_no, 'to_alipay_dict'):
-                params['business_license_no'] = json.dumps(obj=self.business_license_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['business_license_no'] = json.dumps(obj=self.business_license_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['business_license_no'] = self.business_license_no
         if self.date_limitation:
             if hasattr(self.date_limitation, 'to_alipay_dict'):
-                params['date_limitation'] = json.dumps(obj=self.date_limitation.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['date_limitation'] = json.dumps(obj=self.date_limitation.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['date_limitation'] = self.date_limitation
         if self.long_term:
             if hasattr(self.long_term, 'to_alipay_dict'):
-                params['long_term'] = json.dumps(obj=self.long_term.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['long_term'] = json.dumps(obj=self.long_term.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['long_term'] = self.long_term
         if self.mcc_code:
             if hasattr(self.mcc_code, 'to_alipay_dict'):
-                params['mcc_code'] = json.dumps(obj=self.mcc_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['mcc_code'] = json.dumps(obj=self.mcc_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['mcc_code'] = self.mcc_code
         if self.rate:
             if hasattr(self.rate, 'to_alipay_dict'):
-                params['rate'] = json.dumps(obj=self.rate.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['rate'] = json.dumps(obj=self.rate.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['rate'] = self.rate
         if self.terminal_type:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -181,20 +181,20 @@ class AlipayOpenMiniPoiCreateRequest(object):
         params[P_METHOD] = 'alipay.open.mini.poi.create'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.certificate:
             if hasattr(self.certificate, 'to_alipay_dict'):
-                params['certificate'] = json.dumps(obj=self.certificate.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['certificate'] = json.dumps(obj=self.certificate.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['certificate'] = self.certificate
         if self.poi_address:
             if hasattr(self.poi_address, 'to_alipay_dict'):
-                params['poi_address'] = json.dumps(obj=self.poi_address.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['poi_address'] = json.dumps(obj=self.poi_address.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['poi_address'] = self.poi_address
         if self.related_name:
             if hasattr(self.related_name, 'to_alipay_dict'):
-                params['related_name'] = json.dumps(obj=self.related_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['related_name'] = json.dumps(obj=self.related_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['related_name'] = self.related_name
         if self.terminal_type:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -131,20 +131,20 @@ class AlipayMobileBksigntokenVerifyRequest(object):
         params[P_METHOD] = 'alipay.mobile.bksigntoken.verify'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.deviceid:
             if hasattr(self.deviceid, 'to_alipay_dict'):
-                params['deviceid'] = json.dumps(obj=self.deviceid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['deviceid'] = json.dumps(obj=self.deviceid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['deviceid'] = self.deviceid
         if self.source:
             if hasattr(self.source, 'to_alipay_dict'):
-                params['source'] = json.dumps(obj=self.source.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['source'] = json.dumps(obj=self.source.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['source'] = self.source
         if self.token:
             if hasattr(self.token, 'to_alipay_dict'):
-                params['token'] = json.dumps(obj=self.token.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['token'] = json.dumps(obj=self.token.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['token'] = self.token
         if self.terminal_type:

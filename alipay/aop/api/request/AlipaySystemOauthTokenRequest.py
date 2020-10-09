@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -131,20 +131,20 @@ class AlipaySystemOauthTokenRequest(object):
         params[P_METHOD] = 'alipay.system.oauth.token'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.code:
             if hasattr(self.code, 'to_alipay_dict'):
-                params['code'] = json.dumps(obj=self.code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['code'] = json.dumps(obj=self.code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['code'] = self.code
         if self.grant_type:
             if hasattr(self.grant_type, 'to_alipay_dict'):
-                params['grant_type'] = json.dumps(obj=self.grant_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['grant_type'] = json.dumps(obj=self.grant_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['grant_type'] = self.grant_type
         if self.refresh_token:
             if hasattr(self.refresh_token, 'to_alipay_dict'):
-                params['refresh_token'] = json.dumps(obj=self.refresh_token.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['refresh_token'] = json.dumps(obj=self.refresh_token.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['refresh_token'] = self.refresh_token
         if self.terminal_type:

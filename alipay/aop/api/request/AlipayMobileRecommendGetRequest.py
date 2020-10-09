@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -147,30 +147,30 @@ class AlipayMobileRecommendGetRequest(object):
         params[P_METHOD] = 'alipay.mobile.recommend.get'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.ext_info:
             if hasattr(self.ext_info, 'to_alipay_dict'):
-                params['ext_info'] = json.dumps(obj=self.ext_info.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ext_info'] = json.dumps(obj=self.ext_info.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ext_info'] = self.ext_info
         if self.limit:
             if hasattr(self.limit, 'to_alipay_dict'):
-                params['limit'] = json.dumps(obj=self.limit.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['limit'] = json.dumps(obj=self.limit.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['limit'] = self.limit
         if self.scene_id:
             if hasattr(self.scene_id, 'to_alipay_dict'):
-                params['scene_id'] = json.dumps(obj=self.scene_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['scene_id'] = json.dumps(obj=self.scene_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['scene_id'] = self.scene_id
         if self.start_idx:
             if hasattr(self.start_idx, 'to_alipay_dict'):
-                params['start_idx'] = json.dumps(obj=self.start_idx.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['start_idx'] = json.dumps(obj=self.start_idx.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['start_idx'] = self.start_idx
         if self.user_id:
             if hasattr(self.user_id, 'to_alipay_dict'):
-                params['user_id'] = json.dumps(obj=self.user_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['user_id'] = json.dumps(obj=self.user_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['user_id'] = self.user_id
         if self.terminal_type:

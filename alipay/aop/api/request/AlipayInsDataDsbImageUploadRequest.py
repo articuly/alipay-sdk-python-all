@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -213,65 +213,65 @@ class AlipayInsDataDsbImageUploadRequest(object):
         params[P_METHOD] = 'alipay.ins.data.dsb.image.upload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.estimate_no:
             if hasattr(self.estimate_no, 'to_alipay_dict'):
-                params['estimate_no'] = json.dumps(obj=self.estimate_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['estimate_no'] = json.dumps(obj=self.estimate_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['estimate_no'] = self.estimate_no
         if self.frame_no:
             if hasattr(self.frame_no, 'to_alipay_dict'):
-                params['frame_no'] = json.dumps(obj=self.frame_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['frame_no'] = json.dumps(obj=self.frame_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['frame_no'] = self.frame_no
         if self.image_format:
             if hasattr(self.image_format, 'to_alipay_dict'):
-                params['image_format'] = json.dumps(obj=self.image_format.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['image_format'] = json.dumps(obj=self.image_format.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['image_format'] = self.image_format
         if self.image_name:
             if hasattr(self.image_name, 'to_alipay_dict'):
-                params['image_name'] = json.dumps(obj=self.image_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['image_name'] = json.dumps(obj=self.image_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['image_name'] = self.image_name
         if self.image_path:
             if hasattr(self.image_path, 'to_alipay_dict'):
-                params['image_path'] = json.dumps(obj=self.image_path.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['image_path'] = json.dumps(obj=self.image_path.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['image_path'] = self.image_path
         if self.image_properties:
             if hasattr(self.image_properties, 'to_alipay_dict'):
-                params['image_properties'] = json.dumps(obj=self.image_properties.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['image_properties'] = json.dumps(obj=self.image_properties.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['image_properties'] = self.image_properties
         if self.image_source:
             if hasattr(self.image_source, 'to_alipay_dict'):
-                params['image_source'] = json.dumps(obj=self.image_source.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['image_source'] = json.dumps(obj=self.image_source.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['image_source'] = self.image_source
         if self.image_store_type:
             if hasattr(self.image_store_type, 'to_alipay_dict'):
-                params['image_store_type'] = json.dumps(obj=self.image_store_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['image_store_type'] = json.dumps(obj=self.image_store_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['image_store_type'] = self.image_store_type
         if self.image_type:
             if hasattr(self.image_type, 'to_alipay_dict'):
-                params['image_type'] = json.dumps(obj=self.image_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['image_type'] = json.dumps(obj=self.image_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['image_type'] = self.image_type
         if self.license_no:
             if hasattr(self.license_no, 'to_alipay_dict'):
-                params['license_no'] = json.dumps(obj=self.license_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['license_no'] = json.dumps(obj=self.license_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['license_no'] = self.license_no
         if self.report_no:
             if hasattr(self.report_no, 'to_alipay_dict'):
-                params['report_no'] = json.dumps(obj=self.report_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['report_no'] = json.dumps(obj=self.report_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['report_no'] = self.report_no
         if self.shoot_time:
             if hasattr(self.shoot_time, 'to_alipay_dict'):
-                params['shoot_time'] = json.dumps(obj=self.shoot_time.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['shoot_time'] = json.dumps(obj=self.shoot_time.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['shoot_time'] = self.shoot_time
         if self.terminal_type:

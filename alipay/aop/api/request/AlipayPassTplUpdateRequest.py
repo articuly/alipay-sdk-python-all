@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -123,15 +123,15 @@ class AlipayPassTplUpdateRequest(object):
         params[P_METHOD] = 'alipay.pass.tpl.update'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.tpl_content:
             if hasattr(self.tpl_content, 'to_alipay_dict'):
-                params['tpl_content'] = json.dumps(obj=self.tpl_content.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['tpl_content'] = json.dumps(obj=self.tpl_content.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['tpl_content'] = self.tpl_content
         if self.tpl_id:
             if hasattr(self.tpl_id, 'to_alipay_dict'):
-                params['tpl_id'] = json.dumps(obj=self.tpl_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['tpl_id'] = json.dumps(obj=self.tpl_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['tpl_id'] = self.tpl_id
         if self.terminal_type:

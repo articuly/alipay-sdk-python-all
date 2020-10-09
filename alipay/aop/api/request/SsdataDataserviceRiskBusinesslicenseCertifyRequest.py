@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -181,45 +181,45 @@ class SsdataDataserviceRiskBusinesslicenseCertifyRequest(object):
         params[P_METHOD] = 'ssdata.dataservice.risk.businesslicense.certify'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.address:
             if hasattr(self.address, 'to_alipay_dict'):
-                params['address'] = json.dumps(obj=self.address.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['address'] = json.dumps(obj=self.address.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['address'] = self.address
         if self.biz_id:
             if hasattr(self.biz_id, 'to_alipay_dict'):
-                params['biz_id'] = json.dumps(obj=self.biz_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_id'] = json.dumps(obj=self.biz_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_id'] = self.biz_id
         if self.credit_code:
             if hasattr(self.credit_code, 'to_alipay_dict'):
-                params['credit_code'] = json.dumps(obj=self.credit_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['credit_code'] = json.dumps(obj=self.credit_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['credit_code'] = self.credit_code
         if self.ent_legal_name:
             if hasattr(self.ent_legal_name, 'to_alipay_dict'):
-                params['ent_legal_name'] = json.dumps(obj=self.ent_legal_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ent_legal_name'] = json.dumps(obj=self.ent_legal_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ent_legal_name'] = self.ent_legal_name
         if self.ent_name:
             if hasattr(self.ent_name, 'to_alipay_dict'):
-                params['ent_name'] = json.dumps(obj=self.ent_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ent_name'] = json.dumps(obj=self.ent_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ent_name'] = self.ent_name
         if self.expires:
             if hasattr(self.expires, 'to_alipay_dict'):
-                params['expires'] = json.dumps(obj=self.expires.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['expires'] = json.dumps(obj=self.expires.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['expires'] = self.expires
         if self.expires_end:
             if hasattr(self.expires_end, 'to_alipay_dict'):
-                params['expires_end'] = json.dumps(obj=self.expires_end.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['expires_end'] = json.dumps(obj=self.expires_end.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['expires_end'] = self.expires_end
         if self.expires_start:
             if hasattr(self.expires_start, 'to_alipay_dict'):
-                params['expires_start'] = json.dumps(obj=self.expires_start.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['expires_start'] = json.dumps(obj=self.expires_start.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['expires_start'] = self.expires_start
         if self.terminal_type:

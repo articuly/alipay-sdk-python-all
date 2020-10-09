@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -131,20 +131,20 @@ class AlipayZdatafrontDatatransferedSendRequest(object):
         params[P_METHOD] = 'alipay.zdatafront.datatransfered.send'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.data:
             if hasattr(self.data, 'to_alipay_dict'):
-                params['data'] = json.dumps(obj=self.data.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['data'] = json.dumps(obj=self.data.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['data'] = self.data
         if self.identity:
             if hasattr(self.identity, 'to_alipay_dict'):
-                params['identity'] = json.dumps(obj=self.identity.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['identity'] = json.dumps(obj=self.identity.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['identity'] = self.identity
         if self.type_id:
             if hasattr(self.type_id, 'to_alipay_dict'):
-                params['type_id'] = json.dumps(obj=self.type_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['type_id'] = json.dumps(obj=self.type_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['type_id'] = self.type_id
         if self.terminal_type:

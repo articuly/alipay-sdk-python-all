@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -115,10 +115,10 @@ class AlipayMobileCodeQueryRequest(object):
         params[P_METHOD] = 'alipay.mobile.code.query'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.qr_token:
             if hasattr(self.qr_token, 'to_alipay_dict'):
-                params['qr_token'] = json.dumps(obj=self.qr_token.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['qr_token'] = json.dumps(obj=self.qr_token.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['qr_token'] = self.qr_token
         if self.terminal_type:

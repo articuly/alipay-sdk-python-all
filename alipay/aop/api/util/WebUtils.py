@@ -4,7 +4,7 @@ Created on 2017-12-20
 
 @author: liuqun
 '''
-import json
+import simplejson as json
 import os
 
 import itertools
@@ -45,7 +45,7 @@ class MultiPartForm(object):
     def add_field(self, name, value):
         """Add a simple field to the form data."""
         if not isinstance(value, str):
-            value = json.dumps(value, ensure_ascii=False)
+            value = json.dumps(value, use_decimal=True, ensure_ascii=False)
         self.form_fields.append((name, value))
         return
 
@@ -104,7 +104,7 @@ def url_encode(params, charset):
     for (k, v) in params.items():
         value = v
         if not isinstance(value, str):
-            value = json.dumps(value, ensure_ascii=False)
+            value = json.dumps(value, use_decimal=True, ensure_ascii=False)
         if PYTHON_VERSION_3:
             value = quote_plus(value, encoding=charset)
         else:

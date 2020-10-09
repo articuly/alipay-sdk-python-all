@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -157,30 +157,30 @@ class AlipayInsSceneClaimAttachmentUploadRequest(object):
         params[P_METHOD] = 'alipay.ins.scene.claim.attachment.upload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.attachment_name:
             if hasattr(self.attachment_name, 'to_alipay_dict'):
-                params['attachment_name'] = json.dumps(obj=self.attachment_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['attachment_name'] = json.dumps(obj=self.attachment_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['attachment_name'] = self.attachment_name
         if self.attachment_type:
             if hasattr(self.attachment_type, 'to_alipay_dict'):
-                params['attachment_type'] = json.dumps(obj=self.attachment_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['attachment_type'] = json.dumps(obj=self.attachment_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['attachment_type'] = self.attachment_type
         if self.claim_report_no:
             if hasattr(self.claim_report_no, 'to_alipay_dict'):
-                params['claim_report_no'] = json.dumps(obj=self.claim_report_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['claim_report_no'] = json.dumps(obj=self.claim_report_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['claim_report_no'] = self.claim_report_no
         if self.description:
             if hasattr(self.description, 'to_alipay_dict'):
-                params['description'] = json.dumps(obj=self.description.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['description'] = json.dumps(obj=self.description.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['description'] = self.description
         if self.file_type:
             if hasattr(self.file_type, 'to_alipay_dict'):
-                params['file_type'] = json.dumps(obj=self.file_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['file_type'] = json.dumps(obj=self.file_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['file_type'] = self.file_type
         if self.terminal_type:

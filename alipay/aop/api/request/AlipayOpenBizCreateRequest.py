@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -147,25 +147,25 @@ class AlipayOpenBizCreateRequest(object):
         params[P_METHOD] = 'alipay.open.biz.create'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.a:
             if hasattr(self.a, 'to_alipay_dict'):
-                params['a'] = json.dumps(obj=self.a.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['a'] = json.dumps(obj=self.a.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['a'] = self.a
         if self.b:
             if hasattr(self.b, 'to_alipay_dict'):
-                params['b'] = json.dumps(obj=self.b.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['b'] = json.dumps(obj=self.b.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['b'] = self.b
         if self.de:
             if hasattr(self.de, 'to_alipay_dict'):
-                params['de'] = json.dumps(obj=self.de.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['de'] = json.dumps(obj=self.de.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['de'] = self.de
         if self.stringbuff:
             if hasattr(self.stringbuff, 'to_alipay_dict'):
-                params['stringbuff'] = json.dumps(obj=self.stringbuff.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['stringbuff'] = json.dumps(obj=self.stringbuff.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['stringbuff'] = self.stringbuff
         if self.terminal_type:

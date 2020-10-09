@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -147,30 +147,30 @@ class AlipayEcapiprodCreditGetRequest(object):
         params[P_METHOD] = 'alipay.ecapiprod.credit.get'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.credit_no:
             if hasattr(self.credit_no, 'to_alipay_dict'):
-                params['credit_no'] = json.dumps(obj=self.credit_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['credit_no'] = json.dumps(obj=self.credit_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['credit_no'] = self.credit_no
         if self.entity_code:
             if hasattr(self.entity_code, 'to_alipay_dict'):
-                params['entity_code'] = json.dumps(obj=self.entity_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['entity_code'] = json.dumps(obj=self.entity_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['entity_code'] = self.entity_code
         if self.entity_name:
             if hasattr(self.entity_name, 'to_alipay_dict'):
-                params['entity_name'] = json.dumps(obj=self.entity_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['entity_name'] = json.dumps(obj=self.entity_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['entity_name'] = self.entity_name
         if self.isv_code:
             if hasattr(self.isv_code, 'to_alipay_dict'):
-                params['isv_code'] = json.dumps(obj=self.isv_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['isv_code'] = json.dumps(obj=self.isv_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['isv_code'] = self.isv_code
         if self.org_code:
             if hasattr(self.org_code, 'to_alipay_dict'):
-                params['org_code'] = json.dumps(obj=self.org_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['org_code'] = json.dumps(obj=self.org_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['org_code'] = self.org_code
         if self.terminal_type:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -125,10 +125,10 @@ class AlipaySecurityProdSignatureFileUploadRequest(object):
         params[P_METHOD] = 'alipay.security.prod.signature.file.upload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.biz_product:
             if hasattr(self.biz_product, 'to_alipay_dict'):
-                params['biz_product'] = json.dumps(obj=self.biz_product.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_product'] = json.dumps(obj=self.biz_product.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_product'] = self.biz_product
         if self.terminal_type:

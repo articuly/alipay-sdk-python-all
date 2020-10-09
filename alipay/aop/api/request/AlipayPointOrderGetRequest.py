@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -131,20 +131,20 @@ class AlipayPointOrderGetRequest(object):
         params[P_METHOD] = 'alipay.point.order.get'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.merchant_order_no:
             if hasattr(self.merchant_order_no, 'to_alipay_dict'):
-                params['merchant_order_no'] = json.dumps(obj=self.merchant_order_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['merchant_order_no'] = json.dumps(obj=self.merchant_order_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['merchant_order_no'] = self.merchant_order_no
         if self.user_symbol:
             if hasattr(self.user_symbol, 'to_alipay_dict'):
-                params['user_symbol'] = json.dumps(obj=self.user_symbol.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['user_symbol'] = json.dumps(obj=self.user_symbol.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['user_symbol'] = self.user_symbol
         if self.user_symbol_type:
             if hasattr(self.user_symbol_type, 'to_alipay_dict'):
-                params['user_symbol_type'] = json.dumps(obj=self.user_symbol_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['user_symbol_type'] = json.dumps(obj=self.user_symbol_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['user_symbol_type'] = self.user_symbol_type
         if self.terminal_type:

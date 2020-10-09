@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -133,15 +133,15 @@ class AlipayOfflineMarketingVoucherCodeUploadRequest(object):
         params[P_METHOD] = 'alipay.offline.marketing.voucher.code.upload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.extend_params:
             if hasattr(self.extend_params, 'to_alipay_dict'):
-                params['extend_params'] = json.dumps(obj=self.extend_params.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['extend_params'] = json.dumps(obj=self.extend_params.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['extend_params'] = self.extend_params
         if self.file_charset:
             if hasattr(self.file_charset, 'to_alipay_dict'):
-                params['file_charset'] = json.dumps(obj=self.file_charset.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['file_charset'] = json.dumps(obj=self.file_charset.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['file_charset'] = self.file_charset
         if self.terminal_type:

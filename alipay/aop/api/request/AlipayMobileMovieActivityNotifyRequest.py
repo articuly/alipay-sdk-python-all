@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -131,20 +131,20 @@ class AlipayMobileMovieActivityNotifyRequest(object):
         params[P_METHOD] = 'alipay.mobile.movie.activity.notify'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.activity_detail:
             if hasattr(self.activity_detail, 'to_alipay_dict'):
-                params['activity_detail'] = json.dumps(obj=self.activity_detail.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['activity_detail'] = json.dumps(obj=self.activity_detail.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['activity_detail'] = self.activity_detail
         if self.activity_id:
             if hasattr(self.activity_id, 'to_alipay_dict'):
-                params['activity_id'] = json.dumps(obj=self.activity_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['activity_id'] = json.dumps(obj=self.activity_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['activity_id'] = self.activity_id
         if self.status:
             if hasattr(self.status, 'to_alipay_dict'):
-                params['status'] = json.dumps(obj=self.status.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['status'] = json.dumps(obj=self.status.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['status'] = self.status
         if self.terminal_type:

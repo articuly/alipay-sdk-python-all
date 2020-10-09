@@ -5,7 +5,7 @@ Created on 2017-12-20
 @author: liuqun
 '''
 import base64
-import json
+import simplejson as json
 import rsa
 
 from alipay.aop.api.constant.CommonConstants import PYTHON_VERSION_3
@@ -17,7 +17,7 @@ def get_sign_content(all_params):
     for (k, v) in sorted(all_params.items()):
         value = v
         if not isinstance(value, str):
-            value = json.dumps(value, ensure_ascii=False)
+            value = json.dumps(value, use_decimal=True, ensure_ascii=False)
         sign_content += ("&" + k + "=" + value)
     sign_content = sign_content[1:]
     return sign_content

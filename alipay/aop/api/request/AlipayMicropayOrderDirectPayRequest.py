@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -147,30 +147,30 @@ class AlipayMicropayOrderDirectPayRequest(object):
         params[P_METHOD] = 'alipay.micropay.order.direct.pay'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.alipay_order_no:
             if hasattr(self.alipay_order_no, 'to_alipay_dict'):
-                params['alipay_order_no'] = json.dumps(obj=self.alipay_order_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['alipay_order_no'] = json.dumps(obj=self.alipay_order_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['alipay_order_no'] = self.alipay_order_no
         if self.amount:
             if hasattr(self.amount, 'to_alipay_dict'):
-                params['amount'] = json.dumps(obj=self.amount.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['amount'] = json.dumps(obj=self.amount.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['amount'] = self.amount
         if self.memo:
             if hasattr(self.memo, 'to_alipay_dict'):
-                params['memo'] = json.dumps(obj=self.memo.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['memo'] = json.dumps(obj=self.memo.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['memo'] = self.memo
         if self.receive_user_id:
             if hasattr(self.receive_user_id, 'to_alipay_dict'):
-                params['receive_user_id'] = json.dumps(obj=self.receive_user_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['receive_user_id'] = json.dumps(obj=self.receive_user_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['receive_user_id'] = self.receive_user_id
         if self.transfer_out_order_no:
             if hasattr(self.transfer_out_order_no, 'to_alipay_dict'):
-                params['transfer_out_order_no'] = json.dumps(obj=self.transfer_out_order_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['transfer_out_order_no'] = json.dumps(obj=self.transfer_out_order_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['transfer_out_order_no'] = self.transfer_out_order_no
         if self.terminal_type:

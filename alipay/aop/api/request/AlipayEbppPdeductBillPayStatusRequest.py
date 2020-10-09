@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -123,15 +123,15 @@ class AlipayEbppPdeductBillPayStatusRequest(object):
         params[P_METHOD] = 'alipay.ebpp.pdeduct.bill.pay.status'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.agreement_id:
             if hasattr(self.agreement_id, 'to_alipay_dict'):
-                params['agreement_id'] = json.dumps(obj=self.agreement_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['agreement_id'] = json.dumps(obj=self.agreement_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['agreement_id'] = self.agreement_id
         if self.out_order_no:
             if hasattr(self.out_order_no, 'to_alipay_dict'):
-                params['out_order_no'] = json.dumps(obj=self.out_order_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['out_order_no'] = json.dumps(obj=self.out_order_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['out_order_no'] = self.out_order_no
         if self.terminal_type:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -123,15 +123,15 @@ class AlipayOfflineMarketShopPublicBindRequest(object):
         params[P_METHOD] = 'alipay.offline.market.shop.public.bind'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.is_all:
             if hasattr(self.is_all, 'to_alipay_dict'):
-                params['is_all'] = json.dumps(obj=self.is_all.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['is_all'] = json.dumps(obj=self.is_all.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['is_all'] = self.is_all
         if self.shop_ids:
             if hasattr(self.shop_ids, 'to_alipay_dict'):
-                params['shop_ids'] = json.dumps(obj=self.shop_ids.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['shop_ids'] = json.dumps(obj=self.shop_ids.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['shop_ids'] = self.shop_ids
         if self.terminal_type:

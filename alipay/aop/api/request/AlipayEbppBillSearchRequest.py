@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -163,40 +163,40 @@ class AlipayEbppBillSearchRequest(object):
         params[P_METHOD] = 'alipay.ebpp.bill.search'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.bill_key:
             if hasattr(self.bill_key, 'to_alipay_dict'):
-                params['bill_key'] = json.dumps(obj=self.bill_key.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['bill_key'] = json.dumps(obj=self.bill_key.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['bill_key'] = self.bill_key
         if self.charge_inst:
             if hasattr(self.charge_inst, 'to_alipay_dict'):
-                params['charge_inst'] = json.dumps(obj=self.charge_inst.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['charge_inst'] = json.dumps(obj=self.charge_inst.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['charge_inst'] = self.charge_inst
         if self.chargeoff_inst:
             if hasattr(self.chargeoff_inst, 'to_alipay_dict'):
-                params['chargeoff_inst'] = json.dumps(obj=self.chargeoff_inst.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['chargeoff_inst'] = json.dumps(obj=self.chargeoff_inst.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['chargeoff_inst'] = self.chargeoff_inst
         if self.company_id:
             if hasattr(self.company_id, 'to_alipay_dict'):
-                params['company_id'] = json.dumps(obj=self.company_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['company_id'] = json.dumps(obj=self.company_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['company_id'] = self.company_id
         if self.extend:
             if hasattr(self.extend, 'to_alipay_dict'):
-                params['extend'] = json.dumps(obj=self.extend.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['extend'] = json.dumps(obj=self.extend.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['extend'] = self.extend
         if self.order_type:
             if hasattr(self.order_type, 'to_alipay_dict'):
-                params['order_type'] = json.dumps(obj=self.order_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['order_type'] = json.dumps(obj=self.order_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['order_type'] = self.order_type
         if self.sub_order_type:
             if hasattr(self.sub_order_type, 'to_alipay_dict'):
-                params['sub_order_type'] = json.dumps(obj=self.sub_order_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['sub_order_type'] = json.dumps(obj=self.sub_order_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['sub_order_type'] = self.sub_order_type
         if self.terminal_type:

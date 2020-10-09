@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -167,30 +167,30 @@ class ZhimaCreditEpCodecCreateRequest(object):
         params[P_METHOD] = 'zhima.credit.ep.codec.create'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.channel_id:
             if hasattr(self.channel_id, 'to_alipay_dict'):
-                params['channel_id'] = json.dumps(obj=self.channel_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['channel_id'] = json.dumps(obj=self.channel_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['channel_id'] = self.channel_id
         if self.channel_name:
             if hasattr(self.channel_name, 'to_alipay_dict'):
-                params['channel_name'] = json.dumps(obj=self.channel_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['channel_name'] = json.dumps(obj=self.channel_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['channel_name'] = self.channel_name
         if self.goto_url:
             if hasattr(self.goto_url, 'to_alipay_dict'):
-                params['goto_url'] = json.dumps(obj=self.goto_url.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['goto_url'] = json.dumps(obj=self.goto_url.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['goto_url'] = self.goto_url
         if self.subtitle:
             if hasattr(self.subtitle, 'to_alipay_dict'):
-                params['subtitle'] = json.dumps(obj=self.subtitle.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['subtitle'] = json.dumps(obj=self.subtitle.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['subtitle'] = self.subtitle
         if self.title:
             if hasattr(self.title, 'to_alipay_dict'):
-                params['title'] = json.dumps(obj=self.title.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['title'] = json.dumps(obj=self.title.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['title'] = self.title
         if self.terminal_type:

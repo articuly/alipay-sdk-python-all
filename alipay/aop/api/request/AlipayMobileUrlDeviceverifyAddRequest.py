@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -163,40 +163,40 @@ class AlipayMobileUrlDeviceverifyAddRequest(object):
         params[P_METHOD] = 'alipay.mobile.url.deviceverify.add'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.apdid:
             if hasattr(self.apdid, 'to_alipay_dict'):
-                params['apdid'] = json.dumps(obj=self.apdid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['apdid'] = json.dumps(obj=self.apdid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['apdid'] = self.apdid
         if self.app_version:
             if hasattr(self.app_version, 'to_alipay_dict'):
-                params['app_version'] = json.dumps(obj=self.app_version.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['app_version'] = json.dumps(obj=self.app_version.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['app_version'] = self.app_version
         if self.appid:
             if hasattr(self.appid, 'to_alipay_dict'):
-                params['appid'] = json.dumps(obj=self.appid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['appid'] = json.dumps(obj=self.appid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['appid'] = self.appid
         if self.hid:
             if hasattr(self.hid, 'to_alipay_dict'):
-                params['hid'] = json.dumps(obj=self.hid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['hid'] = json.dumps(obj=self.hid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['hid'] = self.hid
         if self.mobile:
             if hasattr(self.mobile, 'to_alipay_dict'):
-                params['mobile'] = json.dumps(obj=self.mobile.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['mobile'] = json.dumps(obj=self.mobile.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['mobile'] = self.mobile
         if self.sdk_version:
             if hasattr(self.sdk_version, 'to_alipay_dict'):
-                params['sdk_version'] = json.dumps(obj=self.sdk_version.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['sdk_version'] = json.dumps(obj=self.sdk_version.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['sdk_version'] = self.sdk_version
         if self.umid:
             if hasattr(self.umid, 'to_alipay_dict'):
-                params['umid'] = json.dumps(obj=self.umid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['umid'] = json.dumps(obj=self.umid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['umid'] = self.umid
         if self.terminal_type:

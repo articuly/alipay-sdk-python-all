@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -115,10 +115,10 @@ class AlipayUserAccountFreezeGetRequest(object):
         params[P_METHOD] = 'alipay.user.account.freeze.get'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.freeze_type:
             if hasattr(self.freeze_type, 'to_alipay_dict'):
-                params['freeze_type'] = json.dumps(obj=self.freeze_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['freeze_type'] = json.dumps(obj=self.freeze_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['freeze_type'] = self.freeze_type
         if self.terminal_type:

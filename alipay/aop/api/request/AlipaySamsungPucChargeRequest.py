@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -203,65 +203,65 @@ class AlipaySamsungPucChargeRequest(object):
         params[P_METHOD] = 'alipay.samsung.puc.charge'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.apd_id:
             if hasattr(self.apd_id, 'to_alipay_dict'):
-                params['apd_id'] = json.dumps(obj=self.apd_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['apd_id'] = json.dumps(obj=self.apd_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['apd_id'] = self.apd_id
         if self.cell_id:
             if hasattr(self.cell_id, 'to_alipay_dict'):
-                params['cell_id'] = json.dumps(obj=self.cell_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['cell_id'] = json.dumps(obj=self.cell_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['cell_id'] = self.cell_id
         if self.device_info_token:
             if hasattr(self.device_info_token, 'to_alipay_dict'):
-                params['device_info_token'] = json.dumps(obj=self.device_info_token.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['device_info_token'] = json.dumps(obj=self.device_info_token.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['device_info_token'] = self.device_info_token
         if self.exparam:
             if hasattr(self.exparam, 'to_alipay_dict'):
-                params['exparam'] = json.dumps(obj=self.exparam.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['exparam'] = json.dumps(obj=self.exparam.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['exparam'] = self.exparam
         if self.imei:
             if hasattr(self.imei, 'to_alipay_dict'):
-                params['imei'] = json.dumps(obj=self.imei.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['imei'] = json.dumps(obj=self.imei.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['imei'] = self.imei
         if self.ip:
             if hasattr(self.ip, 'to_alipay_dict'):
-                params['ip'] = json.dumps(obj=self.ip.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ip'] = json.dumps(obj=self.ip.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ip'] = self.ip
         if self.lac_id:
             if hasattr(self.lac_id, 'to_alipay_dict'):
-                params['lac_id'] = json.dumps(obj=self.lac_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['lac_id'] = json.dumps(obj=self.lac_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['lac_id'] = self.lac_id
         if self.login_from:
             if hasattr(self.login_from, 'to_alipay_dict'):
-                params['login_from'] = json.dumps(obj=self.login_from.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['login_from'] = json.dumps(obj=self.login_from.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['login_from'] = self.login_from
         if self.mac:
             if hasattr(self.mac, 'to_alipay_dict'):
-                params['mac'] = json.dumps(obj=self.mac.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['mac'] = json.dumps(obj=self.mac.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['mac'] = self.mac
         if self.tid:
             if hasattr(self.tid, 'to_alipay_dict'):
-                params['tid'] = json.dumps(obj=self.tid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['tid'] = json.dumps(obj=self.tid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['tid'] = self.tid
         if self.umid:
             if hasattr(self.umid, 'to_alipay_dict'):
-                params['umid'] = json.dumps(obj=self.umid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['umid'] = json.dumps(obj=self.umid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['umid'] = self.umid
         if self.wireless_mac:
             if hasattr(self.wireless_mac, 'to_alipay_dict'):
-                params['wireless_mac'] = json.dumps(obj=self.wireless_mac.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['wireless_mac'] = json.dumps(obj=self.wireless_mac.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['wireless_mac'] = self.wireless_mac
         if self.terminal_type:

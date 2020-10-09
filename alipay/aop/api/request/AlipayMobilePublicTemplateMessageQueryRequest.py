@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -123,15 +123,15 @@ class AlipayMobilePublicTemplateMessageQueryRequest(object):
         params[P_METHOD] = 'alipay.mobile.public.template.message.query'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.template:
             if hasattr(self.template, 'to_alipay_dict'):
-                params['template'] = json.dumps(obj=self.template.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['template'] = json.dumps(obj=self.template.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['template'] = self.template
         if self.template_id:
             if hasattr(self.template_id, 'to_alipay_dict'):
-                params['template_id'] = json.dumps(obj=self.template_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['template_id'] = json.dumps(obj=self.template_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['template_id'] = self.template_id
         if self.terminal_type:

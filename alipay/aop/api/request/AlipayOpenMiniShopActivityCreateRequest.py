@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -149,25 +149,25 @@ class AlipayOpenMiniShopActivityCreateRequest(object):
         params[P_METHOD] = 'alipay.open.mini.shop.activity.create'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.end_time:
             if hasattr(self.end_time, 'to_alipay_dict'):
-                params['end_time'] = json.dumps(obj=self.end_time.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['end_time'] = json.dumps(obj=self.end_time.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['end_time'] = self.end_time
         if self.plugin_id:
             if hasattr(self.plugin_id, 'to_alipay_dict'):
-                params['plugin_id'] = json.dumps(obj=self.plugin_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['plugin_id'] = json.dumps(obj=self.plugin_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['plugin_id'] = self.plugin_id
         if self.start_time:
             if hasattr(self.start_time, 'to_alipay_dict'):
-                params['start_time'] = json.dumps(obj=self.start_time.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['start_time'] = json.dumps(obj=self.start_time.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['start_time'] = self.start_time
         if self.target_url:
             if hasattr(self.target_url, 'to_alipay_dict'):
-                params['target_url'] = json.dumps(obj=self.target_url.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['target_url'] = json.dumps(obj=self.target_url.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['target_url'] = self.target_url
         if self.terminal_type:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -149,25 +149,25 @@ class AlipayMarketingCampaignRuleTagCreateRequest(object):
         params[P_METHOD] = 'alipay.marketing.campaign.rule.tag.create'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.mpid:
             if hasattr(self.mpid, 'to_alipay_dict'):
-                params['mpid'] = json.dumps(obj=self.mpid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['mpid'] = json.dumps(obj=self.mpid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['mpid'] = self.mpid
         if self.operatetype:
             if hasattr(self.operatetype, 'to_alipay_dict'):
-                params['operatetype'] = json.dumps(obj=self.operatetype.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operatetype'] = json.dumps(obj=self.operatetype.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operatetype'] = self.operatetype
         if self.selftag:
             if hasattr(self.selftag, 'to_alipay_dict'):
-                params['selftag'] = json.dumps(obj=self.selftag.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['selftag'] = json.dumps(obj=self.selftag.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['selftag'] = self.selftag
         if self.tagdesc:
             if hasattr(self.tagdesc, 'to_alipay_dict'):
-                params['tagdesc'] = json.dumps(obj=self.tagdesc.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['tagdesc'] = json.dumps(obj=self.tagdesc.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['tagdesc'] = self.tagdesc
         if self.terminal_type:

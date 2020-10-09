@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -139,25 +139,25 @@ class AlipayLifeassistantProdBillGetRequest(object):
         params[P_METHOD] = 'alipay.lifeassistant.prod.bill.get'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.biz_type:
             if hasattr(self.biz_type, 'to_alipay_dict'):
-                params['biz_type'] = json.dumps(obj=self.biz_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_type'] = json.dumps(obj=self.biz_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_type'] = self.biz_type
         if self.m_type:
             if hasattr(self.m_type, 'to_alipay_dict'):
-                params['m_type'] = json.dumps(obj=self.m_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['m_type'] = json.dumps(obj=self.m_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['m_type'] = self.m_type
         if self.order_id:
             if hasattr(self.order_id, 'to_alipay_dict'):
-                params['order_id'] = json.dumps(obj=self.order_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['order_id'] = json.dumps(obj=self.order_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['order_id'] = self.order_id
         if self.uid:
             if hasattr(self.uid, 'to_alipay_dict'):
-                params['uid'] = json.dumps(obj=self.uid.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['uid'] = json.dumps(obj=self.uid.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['uid'] = self.uid
         if self.terminal_type:

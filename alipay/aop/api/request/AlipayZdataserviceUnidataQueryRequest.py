@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -123,15 +123,15 @@ class AlipayZdataserviceUnidataQueryRequest(object):
         params[P_METHOD] = 'alipay.zdataservice.unidata.query'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.query_condition:
             if hasattr(self.query_condition, 'to_alipay_dict'):
-                params['query_condition'] = json.dumps(obj=self.query_condition.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['query_condition'] = json.dumps(obj=self.query_condition.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['query_condition'] = self.query_condition
         if self.uniq_key:
             if hasattr(self.uniq_key, 'to_alipay_dict'):
-                params['uniq_key'] = json.dumps(obj=self.uniq_key.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['uniq_key'] = json.dumps(obj=self.uniq_key.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['uniq_key'] = self.uniq_key
         if self.terminal_type:

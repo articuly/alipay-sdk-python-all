@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -131,20 +131,20 @@ class AlipayDatabizCorePaymentAbilityGetRequest(object):
         params[P_METHOD] = 'alipay.databiz.core.payment.ability.get'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.app_info:
             if hasattr(self.app_info, 'to_alipay_dict'):
-                params['app_info'] = json.dumps(obj=self.app_info.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['app_info'] = json.dumps(obj=self.app_info.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['app_info'] = self.app_info
         if self.imei:
             if hasattr(self.imei, 'to_alipay_dict'):
-                params['imei'] = json.dumps(obj=self.imei.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['imei'] = json.dumps(obj=self.imei.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['imei'] = self.imei
         if self.mobile_num:
             if hasattr(self.mobile_num, 'to_alipay_dict'):
-                params['mobile_num'] = json.dumps(obj=self.mobile_num.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['mobile_num'] = json.dumps(obj=self.mobile_num.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['mobile_num'] = self.mobile_num
         if self.terminal_type:

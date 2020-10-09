@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -224,45 +224,45 @@ class AlipayOpenPublicLifeMsgSendRequest(object):
         params[P_METHOD] = 'alipay.open.public.life.msg.send'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.category:
             if hasattr(self.category, 'to_alipay_dict'):
-                params['category'] = json.dumps(obj=self.category.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['category'] = json.dumps(obj=self.category.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['category'] = self.category
         if self.content:
             if hasattr(self.content, 'to_alipay_dict'):
-                params['content'] = json.dumps(obj=self.content.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['content'] = json.dumps(obj=self.content.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['content'] = self.content
         if self.desc:
             if hasattr(self.desc, 'to_alipay_dict'):
-                params['desc'] = json.dumps(obj=self.desc.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['desc'] = json.dumps(obj=self.desc.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['desc'] = self.desc
         if self.msg_type:
             if hasattr(self.msg_type, 'to_alipay_dict'):
-                params['msg_type'] = json.dumps(obj=self.msg_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['msg_type'] = json.dumps(obj=self.msg_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['msg_type'] = self.msg_type
         if self.source_ext_info:
             if hasattr(self.source_ext_info, 'to_alipay_dict'):
-                params['source_ext_info'] = json.dumps(obj=self.source_ext_info.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['source_ext_info'] = json.dumps(obj=self.source_ext_info.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['source_ext_info'] = self.source_ext_info
         if self.title:
             if hasattr(self.title, 'to_alipay_dict'):
-                params['title'] = json.dumps(obj=self.title.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['title'] = json.dumps(obj=self.title.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['title'] = self.title
         if self.unique_msg_id:
             if hasattr(self.unique_msg_id, 'to_alipay_dict'):
-                params['unique_msg_id'] = json.dumps(obj=self.unique_msg_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['unique_msg_id'] = json.dumps(obj=self.unique_msg_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['unique_msg_id'] = self.unique_msg_id
         if self.video_length:
             if hasattr(self.video_length, 'to_alipay_dict'):
-                params['video_length'] = json.dumps(obj=self.video_length.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['video_length'] = json.dumps(obj=self.video_length.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['video_length'] = self.video_length
         if self.video_samples:
@@ -274,22 +274,22 @@ class AlipayOpenPublicLifeMsgSendRequest(object):
                 params['video_samples'] = json.dumps(obj=self.video_samples, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.video_size:
             if hasattr(self.video_size, 'to_alipay_dict'):
-                params['video_size'] = json.dumps(obj=self.video_size.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['video_size'] = json.dumps(obj=self.video_size.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['video_size'] = self.video_size
         if self.video_source:
             if hasattr(self.video_source, 'to_alipay_dict'):
-                params['video_source'] = json.dumps(obj=self.video_source.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['video_source'] = json.dumps(obj=self.video_source.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['video_source'] = self.video_source
         if self.video_temporary_url:
             if hasattr(self.video_temporary_url, 'to_alipay_dict'):
-                params['video_temporary_url'] = json.dumps(obj=self.video_temporary_url.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['video_temporary_url'] = json.dumps(obj=self.video_temporary_url.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['video_temporary_url'] = self.video_temporary_url
         if self.video_url:
             if hasattr(self.video_url, 'to_alipay_dict'):
-                params['video_url'] = json.dumps(obj=self.video_url.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['video_url'] = json.dumps(obj=self.video_url.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['video_url'] = self.video_url
         if self.terminal_type:

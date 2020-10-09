@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -171,45 +171,45 @@ class AlipayAcquireRefundRequest(object):
         params[P_METHOD] = 'alipay.acquire.refund'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.operator_id:
             if hasattr(self.operator_id, 'to_alipay_dict'):
-                params['operator_id'] = json.dumps(obj=self.operator_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator_id'] = json.dumps(obj=self.operator_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator_id'] = self.operator_id
         if self.operator_type:
             if hasattr(self.operator_type, 'to_alipay_dict'):
-                params['operator_type'] = json.dumps(obj=self.operator_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator_type'] = json.dumps(obj=self.operator_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator_type'] = self.operator_type
         if self.out_request_no:
             if hasattr(self.out_request_no, 'to_alipay_dict'):
-                params['out_request_no'] = json.dumps(obj=self.out_request_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['out_request_no'] = json.dumps(obj=self.out_request_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['out_request_no'] = self.out_request_no
         if self.out_trade_no:
             if hasattr(self.out_trade_no, 'to_alipay_dict'):
-                params['out_trade_no'] = json.dumps(obj=self.out_trade_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['out_trade_no'] = json.dumps(obj=self.out_trade_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['out_trade_no'] = self.out_trade_no
         if self.ref_ids:
             if hasattr(self.ref_ids, 'to_alipay_dict'):
-                params['ref_ids'] = json.dumps(obj=self.ref_ids.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ref_ids'] = json.dumps(obj=self.ref_ids.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ref_ids'] = self.ref_ids
         if self.refund_amount:
             if hasattr(self.refund_amount, 'to_alipay_dict'):
-                params['refund_amount'] = json.dumps(obj=self.refund_amount.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['refund_amount'] = json.dumps(obj=self.refund_amount.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['refund_amount'] = self.refund_amount
         if self.refund_reason:
             if hasattr(self.refund_reason, 'to_alipay_dict'):
-                params['refund_reason'] = json.dumps(obj=self.refund_reason.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['refund_reason'] = json.dumps(obj=self.refund_reason.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['refund_reason'] = self.refund_reason
         if self.trade_no:
             if hasattr(self.trade_no, 'to_alipay_dict'):
-                params['trade_no'] = json.dumps(obj=self.trade_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['trade_no'] = json.dumps(obj=self.trade_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['trade_no'] = self.trade_no
         if self.terminal_type:

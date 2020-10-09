@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -139,25 +139,25 @@ class AlipayGotoneAckcodeVerifyRequest(object):
         params[P_METHOD] = 'alipay.gotone.ackcode.verify'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.ack_code:
             if hasattr(self.ack_code, 'to_alipay_dict'):
-                params['ack_code'] = json.dumps(obj=self.ack_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ack_code'] = json.dumps(obj=self.ack_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ack_code'] = self.ack_code
         if self.biz_no:
             if hasattr(self.biz_no, 'to_alipay_dict'):
-                params['biz_no'] = json.dumps(obj=self.biz_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_no'] = json.dumps(obj=self.biz_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_no'] = self.biz_no
         if self.biz_type:
             if hasattr(self.biz_type, 'to_alipay_dict'):
-                params['biz_type'] = json.dumps(obj=self.biz_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_type'] = json.dumps(obj=self.biz_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_type'] = self.biz_type
         if self.mobile:
             if hasattr(self.mobile, 'to_alipay_dict'):
-                params['mobile'] = json.dumps(obj=self.mobile.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['mobile'] = json.dumps(obj=self.mobile.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['mobile'] = self.mobile
         if self.terminal_type:

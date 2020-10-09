@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -155,35 +155,35 @@ class AlipayCertifyVerifyIdcardRequest(object):
         params[P_METHOD] = 'alipay.certify.verify.idcard'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.biz_from:
             if hasattr(self.biz_from, 'to_alipay_dict'):
-                params['biz_from'] = json.dumps(obj=self.biz_from.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_from'] = json.dumps(obj=self.biz_from.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_from'] = self.biz_from
         if self.biz_id:
             if hasattr(self.biz_id, 'to_alipay_dict'):
-                params['biz_id'] = json.dumps(obj=self.biz_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_id'] = json.dumps(obj=self.biz_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_id'] = self.biz_id
         if self.cert_name:
             if hasattr(self.cert_name, 'to_alipay_dict'):
-                params['cert_name'] = json.dumps(obj=self.cert_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['cert_name'] = json.dumps(obj=self.cert_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['cert_name'] = self.cert_name
         if self.cert_no:
             if hasattr(self.cert_no, 'to_alipay_dict'):
-                params['cert_no'] = json.dumps(obj=self.cert_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['cert_no'] = json.dumps(obj=self.cert_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['cert_no'] = self.cert_no
         if self.certify_from:
             if hasattr(self.certify_from, 'to_alipay_dict'):
-                params['certify_from'] = json.dumps(obj=self.certify_from.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['certify_from'] = json.dumps(obj=self.certify_from.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['certify_from'] = self.certify_from
         if self.force_public:
             if hasattr(self.force_public, 'to_alipay_dict'):
-                params['force_public'] = json.dumps(obj=self.force_public.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['force_public'] = json.dumps(obj=self.force_public.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['force_public'] = self.force_public
         if self.terminal_type:

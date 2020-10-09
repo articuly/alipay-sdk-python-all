@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -173,40 +173,40 @@ class ZhimaMerchantCloseloopDataUploadRequest(object):
         params[P_METHOD] = 'zhima.merchant.closeloop.data.upload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.biz_ext_params:
             if hasattr(self.biz_ext_params, 'to_alipay_dict'):
-                params['biz_ext_params'] = json.dumps(obj=self.biz_ext_params.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_ext_params'] = json.dumps(obj=self.biz_ext_params.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_ext_params'] = self.biz_ext_params
         if self.columns:
             if hasattr(self.columns, 'to_alipay_dict'):
-                params['columns'] = json.dumps(obj=self.columns.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['columns'] = json.dumps(obj=self.columns.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['columns'] = self.columns
         if self.file_charset:
             if hasattr(self.file_charset, 'to_alipay_dict'):
-                params['file_charset'] = json.dumps(obj=self.file_charset.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['file_charset'] = json.dumps(obj=self.file_charset.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['file_charset'] = self.file_charset
         if self.linked_merchant_id:
             if hasattr(self.linked_merchant_id, 'to_alipay_dict'):
-                params['linked_merchant_id'] = json.dumps(obj=self.linked_merchant_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['linked_merchant_id'] = json.dumps(obj=self.linked_merchant_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['linked_merchant_id'] = self.linked_merchant_id
         if self.primary_key_columns:
             if hasattr(self.primary_key_columns, 'to_alipay_dict'):
-                params['primary_key_columns'] = json.dumps(obj=self.primary_key_columns.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['primary_key_columns'] = json.dumps(obj=self.primary_key_columns.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['primary_key_columns'] = self.primary_key_columns
         if self.records:
             if hasattr(self.records, 'to_alipay_dict'):
-                params['records'] = json.dumps(obj=self.records.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['records'] = json.dumps(obj=self.records.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['records'] = self.records
         if self.scene_code:
             if hasattr(self.scene_code, 'to_alipay_dict'):
-                params['scene_code'] = json.dumps(obj=self.scene_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['scene_code'] = json.dumps(obj=self.scene_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['scene_code'] = self.scene_code
         if self.terminal_type:

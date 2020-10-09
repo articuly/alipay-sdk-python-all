@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -139,25 +139,25 @@ class AlipayAcquireCancelRequest(object):
         params[P_METHOD] = 'alipay.acquire.cancel'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.operator_id:
             if hasattr(self.operator_id, 'to_alipay_dict'):
-                params['operator_id'] = json.dumps(obj=self.operator_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator_id'] = json.dumps(obj=self.operator_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator_id'] = self.operator_id
         if self.operator_type:
             if hasattr(self.operator_type, 'to_alipay_dict'):
-                params['operator_type'] = json.dumps(obj=self.operator_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator_type'] = json.dumps(obj=self.operator_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator_type'] = self.operator_type
         if self.out_trade_no:
             if hasattr(self.out_trade_no, 'to_alipay_dict'):
-                params['out_trade_no'] = json.dumps(obj=self.out_trade_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['out_trade_no'] = json.dumps(obj=self.out_trade_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['out_trade_no'] = self.out_trade_no
         if self.trade_no:
             if hasattr(self.trade_no, 'to_alipay_dict'):
-                params['trade_no'] = json.dumps(obj=self.trade_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['trade_no'] = json.dumps(obj=self.trade_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['trade_no'] = self.trade_no
         if self.terminal_type:

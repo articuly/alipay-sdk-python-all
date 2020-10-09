@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -173,40 +173,40 @@ class AlipayPcreditLoanCollateralOperationSyncRequest(object):
         params[P_METHOD] = 'alipay.pcredit.loan.collateral.operation.sync'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.apply_no:
             if hasattr(self.apply_no, 'to_alipay_dict'):
-                params['apply_no'] = json.dumps(obj=self.apply_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['apply_no'] = json.dumps(obj=self.apply_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['apply_no'] = self.apply_no
         if self.biz_ext_info:
             if hasattr(self.biz_ext_info, 'to_alipay_dict'):
-                params['biz_ext_info'] = json.dumps(obj=self.biz_ext_info.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['biz_ext_info'] = json.dumps(obj=self.biz_ext_info.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['biz_ext_info'] = self.biz_ext_info
         if self.memo:
             if hasattr(self.memo, 'to_alipay_dict'):
-                params['memo'] = json.dumps(obj=self.memo.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['memo'] = json.dumps(obj=self.memo.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['memo'] = self.memo
         if self.operated_time:
             if hasattr(self.operated_time, 'to_alipay_dict'):
-                params['operated_time'] = json.dumps(obj=self.operated_time.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operated_time'] = json.dumps(obj=self.operated_time.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operated_time'] = self.operated_time
         if self.operated_type:
             if hasattr(self.operated_type, 'to_alipay_dict'):
-                params['operated_type'] = json.dumps(obj=self.operated_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operated_type'] = json.dumps(obj=self.operated_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operated_type'] = self.operated_type
         if self.operator:
             if hasattr(self.operator, 'to_alipay_dict'):
-                params['operator'] = json.dumps(obj=self.operator.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator'] = json.dumps(obj=self.operator.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator'] = self.operator
         if self.out_request_no:
             if hasattr(self.out_request_no, 'to_alipay_dict'):
-                params['out_request_no'] = json.dumps(obj=self.out_request_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['out_request_no'] = json.dumps(obj=self.out_request_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['out_request_no'] = self.out_request_no
         if self.terminal_type:

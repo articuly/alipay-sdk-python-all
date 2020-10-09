@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -171,45 +171,45 @@ class AlipayMobilePublicInfoModifyRequest(object):
         params[P_METHOD] = 'alipay.mobile.public.info.modify'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.app_name:
             if hasattr(self.app_name, 'to_alipay_dict'):
-                params['app_name'] = json.dumps(obj=self.app_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['app_name'] = json.dumps(obj=self.app_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['app_name'] = self.app_name
         if self.auth_pic:
             if hasattr(self.auth_pic, 'to_alipay_dict'):
-                params['auth_pic'] = json.dumps(obj=self.auth_pic.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['auth_pic'] = json.dumps(obj=self.auth_pic.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['auth_pic'] = self.auth_pic
         if self.license_url:
             if hasattr(self.license_url, 'to_alipay_dict'):
-                params['license_url'] = json.dumps(obj=self.license_url.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['license_url'] = json.dumps(obj=self.license_url.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['license_url'] = self.license_url
         if self.logo_url:
             if hasattr(self.logo_url, 'to_alipay_dict'):
-                params['logo_url'] = json.dumps(obj=self.logo_url.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['logo_url'] = json.dumps(obj=self.logo_url.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['logo_url'] = self.logo_url
         if self.public_greeting:
             if hasattr(self.public_greeting, 'to_alipay_dict'):
-                params['public_greeting'] = json.dumps(obj=self.public_greeting.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['public_greeting'] = json.dumps(obj=self.public_greeting.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['public_greeting'] = self.public_greeting
         if self.shop_pic1:
             if hasattr(self.shop_pic1, 'to_alipay_dict'):
-                params['shop_pic1'] = json.dumps(obj=self.shop_pic1.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['shop_pic1'] = json.dumps(obj=self.shop_pic1.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['shop_pic1'] = self.shop_pic1
         if self.shop_pic2:
             if hasattr(self.shop_pic2, 'to_alipay_dict'):
-                params['shop_pic2'] = json.dumps(obj=self.shop_pic2.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['shop_pic2'] = json.dumps(obj=self.shop_pic2.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['shop_pic2'] = self.shop_pic2
         if self.shop_pic3:
             if hasattr(self.shop_pic3, 'to_alipay_dict'):
-                params['shop_pic3'] = json.dumps(obj=self.shop_pic3.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['shop_pic3'] = json.dumps(obj=self.shop_pic3.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['shop_pic3'] = self.shop_pic3
         if self.terminal_type:

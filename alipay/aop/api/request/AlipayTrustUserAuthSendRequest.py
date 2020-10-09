@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -115,10 +115,10 @@ class AlipayTrustUserAuthSendRequest(object):
         params[P_METHOD] = 'alipay.trust.user.auth.send'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.ali_trust_user_info:
             if hasattr(self.ali_trust_user_info, 'to_alipay_dict'):
-                params['ali_trust_user_info'] = json.dumps(obj=self.ali_trust_user_info.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ali_trust_user_info'] = json.dumps(obj=self.ali_trust_user_info.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ali_trust_user_info'] = self.ali_trust_user_info
         if self.terminal_type:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -115,10 +115,10 @@ class AlipayUserGetRequest(object):
         params[P_METHOD] = 'alipay.user.get'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.fields:
             if hasattr(self.fields, 'to_alipay_dict'):
-                params['fields'] = json.dumps(obj=self.fields.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['fields'] = json.dumps(obj=self.fields.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['fields'] = self.fields
         if self.terminal_type:

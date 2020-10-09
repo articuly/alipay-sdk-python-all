@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -179,50 +179,50 @@ class AlipayDiscoveryTaxiOrderConfirmRequest(object):
         params[P_METHOD] = 'alipay.discovery.taxi.order.confirm'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.driver_lat:
             if hasattr(self.driver_lat, 'to_alipay_dict'):
-                params['driver_lat'] = json.dumps(obj=self.driver_lat.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['driver_lat'] = json.dumps(obj=self.driver_lat.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['driver_lat'] = self.driver_lat
         if self.driver_license:
             if hasattr(self.driver_license, 'to_alipay_dict'):
-                params['driver_license'] = json.dumps(obj=self.driver_license.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['driver_license'] = json.dumps(obj=self.driver_license.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['driver_license'] = self.driver_license
         if self.driver_lng:
             if hasattr(self.driver_lng, 'to_alipay_dict'):
-                params['driver_lng'] = json.dumps(obj=self.driver_lng.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['driver_lng'] = json.dumps(obj=self.driver_lng.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['driver_lng'] = self.driver_lng
         if self.driver_name:
             if hasattr(self.driver_name, 'to_alipay_dict'):
-                params['driver_name'] = json.dumps(obj=self.driver_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['driver_name'] = json.dumps(obj=self.driver_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['driver_name'] = self.driver_name
         if self.driver_phone:
             if hasattr(self.driver_phone, 'to_alipay_dict'):
-                params['driver_phone'] = json.dumps(obj=self.driver_phone.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['driver_phone'] = json.dumps(obj=self.driver_phone.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['driver_phone'] = self.driver_phone
         if self.is_alipay_support:
             if hasattr(self.is_alipay_support, 'to_alipay_dict'):
-                params['is_alipay_support'] = json.dumps(obj=self.is_alipay_support.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['is_alipay_support'] = json.dumps(obj=self.is_alipay_support.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['is_alipay_support'] = self.is_alipay_support
         if self.out_biz_no:
             if hasattr(self.out_biz_no, 'to_alipay_dict'):
-                params['out_biz_no'] = json.dumps(obj=self.out_biz_no.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['out_biz_no'] = json.dumps(obj=self.out_biz_no.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['out_biz_no'] = self.out_biz_no
         if self.partner_id:
             if hasattr(self.partner_id, 'to_alipay_dict'):
-                params['partner_id'] = json.dumps(obj=self.partner_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['partner_id'] = json.dumps(obj=self.partner_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['partner_id'] = self.partner_id
         if self.seller:
             if hasattr(self.seller, 'to_alipay_dict'):
-                params['seller'] = json.dumps(obj=self.seller.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['seller'] = json.dumps(obj=self.seller.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['seller'] = self.seller
         if self.terminal_type:

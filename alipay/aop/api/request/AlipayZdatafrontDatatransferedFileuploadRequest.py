@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -173,40 +173,40 @@ class AlipayZdatafrontDatatransferedFileuploadRequest(object):
         params[P_METHOD] = 'alipay.zdatafront.datatransfered.fileupload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.columns:
             if hasattr(self.columns, 'to_alipay_dict'):
-                params['columns'] = json.dumps(obj=self.columns.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['columns'] = json.dumps(obj=self.columns.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['columns'] = self.columns
         if self.file_description:
             if hasattr(self.file_description, 'to_alipay_dict'):
-                params['file_description'] = json.dumps(obj=self.file_description.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['file_description'] = json.dumps(obj=self.file_description.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['file_description'] = self.file_description
         if self.file_digest:
             if hasattr(self.file_digest, 'to_alipay_dict'):
-                params['file_digest'] = json.dumps(obj=self.file_digest.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['file_digest'] = json.dumps(obj=self.file_digest.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['file_digest'] = self.file_digest
         if self.file_type:
             if hasattr(self.file_type, 'to_alipay_dict'):
-                params['file_type'] = json.dumps(obj=self.file_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['file_type'] = json.dumps(obj=self.file_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['file_type'] = self.file_type
         if self.primary_key:
             if hasattr(self.primary_key, 'to_alipay_dict'):
-                params['primary_key'] = json.dumps(obj=self.primary_key.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['primary_key'] = json.dumps(obj=self.primary_key.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['primary_key'] = self.primary_key
         if self.records:
             if hasattr(self.records, 'to_alipay_dict'):
-                params['records'] = json.dumps(obj=self.records.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['records'] = json.dumps(obj=self.records.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['records'] = self.records
         if self.type_id:
             if hasattr(self.type_id, 'to_alipay_dict'):
-                params['type_id'] = json.dumps(obj=self.type_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['type_id'] = json.dumps(obj=self.type_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['type_id'] = self.type_id
         if self.terminal_type:

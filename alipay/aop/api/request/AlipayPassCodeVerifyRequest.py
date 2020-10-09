@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -139,25 +139,25 @@ class AlipayPassCodeVerifyRequest(object):
         params[P_METHOD] = 'alipay.pass.code.verify'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.ext_info:
             if hasattr(self.ext_info, 'to_alipay_dict'):
-                params['ext_info'] = json.dumps(obj=self.ext_info.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['ext_info'] = json.dumps(obj=self.ext_info.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['ext_info'] = self.ext_info
         if self.operator_id:
             if hasattr(self.operator_id, 'to_alipay_dict'):
-                params['operator_id'] = json.dumps(obj=self.operator_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator_id'] = json.dumps(obj=self.operator_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator_id'] = self.operator_id
         if self.operator_type:
             if hasattr(self.operator_type, 'to_alipay_dict'):
-                params['operator_type'] = json.dumps(obj=self.operator_type.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['operator_type'] = json.dumps(obj=self.operator_type.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['operator_type'] = self.operator_type
         if self.verify_code:
             if hasattr(self.verify_code, 'to_alipay_dict'):
-                params['verify_code'] = json.dumps(obj=self.verify_code.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['verify_code'] = json.dumps(obj=self.verify_code.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['verify_code'] = self.verify_code
         if self.terminal_type:

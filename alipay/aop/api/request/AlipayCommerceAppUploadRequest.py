@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+import simplejson as json
 
 from alipay.aop.api.FileItem import FileItem
 from alipay.aop.api.constant.ParamConstants import *
@@ -145,20 +145,20 @@ class AlipayCommerceAppUploadRequest(object):
         params[P_METHOD] = 'alipay.commerce.app.upload'
         params[P_VERSION] = self.version
         if self.biz_model:
-            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            params[P_BIZ_CONTENT] = json.dumps(obj=self.biz_model.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         if self.content:
             if hasattr(self.content, 'to_alipay_dict'):
-                params['content'] = json.dumps(obj=self.content.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['content'] = json.dumps(obj=self.content.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['content'] = self.content
         if self.service_name:
             if hasattr(self.service_name, 'to_alipay_dict'):
-                params['service_name'] = json.dumps(obj=self.service_name.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['service_name'] = json.dumps(obj=self.service_name.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['service_name'] = self.service_name
         if self.target_id:
             if hasattr(self.target_id, 'to_alipay_dict'):
-                params['target_id'] = json.dumps(obj=self.target_id.to_alipay_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+                params['target_id'] = json.dumps(obj=self.target_id.to_alipay_dict(), use_decimal=True, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             else:
                 params['target_id'] = self.target_id
         if self.terminal_type:
